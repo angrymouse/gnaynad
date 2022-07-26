@@ -1,0 +1,20 @@
+{
+  "name": "arweave-money",
+  "version": "0.0.1",
+  "description": "Bridging economy to SmartWeave",
+  "main": "cli.js",
+  "repository": "https://github.com/angrymouse/arweave-money",
+  "author": "Angrymouse <nik@hns.is>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@project-serum/anchor": "^0.25.0",
+    "@snowflake-so/safe-sdk": "^1.0.3",
+    "@solana/web3.js": "^1.50.1",
+    "arweave": "^1.11.4",
+    "bip39": "^3.0.4",
+    "bs58": "^5.0.0",
+    "json5": "^2.2.1",
+    "warp-contracts": "^1.1.14"
+  }
+}

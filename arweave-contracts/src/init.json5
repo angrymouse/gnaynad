@@ -1,0 +1,36 @@
+{
+	balances: {
+		"udOL7D7qkfFyfnkxfRQA0r1Eoz1-XRwUOSLfiCFee38": 3200000000000,
+	},
+	foreignCalls: [],
+	divisibility: 1000000,
+	ticker: "ARM",
+	name: "Arweave.Money Bridge",
+	nodes: [
+		{
+			name: "Angrymouse node",
+			website: "https://github.com/angrymouse/",
+			active: true,
+			solanaAddress: "DofXHUWDUBpnTx8tKt4evyDbGfAo9jjgeThCSETgVTPV",
+			arweaveAddress: "udOL7D7qkfFyfnkxfRQA0r1Eoz1-XRwUOSLfiCFee38",
+			rewardAddress: "udOL7D7qkfFyfnkxfRQA0r1Eoz1-XRwUOSLfiCFee38",
+		},
+	],
+	proposals: [],
+	settings: [["nodeRegistrationFee", 50000000000]],
+	internalProposals: [],
+	canEvolve: true,
+	evolve: null,
+	solanaSafe: "AJAURkrKKYqoWmpBQj385ym4FXFCjPs7SpC9HjqQFx7Z",
+	rewards: {
+		"udOL7D7qkfFyfnkxfRQA0r1Eoz1-XRwUOSLfiCFee38": {
+			SOL: 0,
+			ARM: 0,
+		},
+	},
+	invocations: [],
+	tokenContracts: {
+		SOL: "", // insert SOL token contract address here, then use "setOwnerContract" on SOL contract, setting deployed version of this contract
+	},
+	targetAPR: 0.1,
+}
