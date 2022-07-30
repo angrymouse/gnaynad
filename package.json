@@ -14,7 +14,9 @@
     "arweave": "^1.11.4",
     "bip39": "^3.0.4",
     "bs58": "^5.0.0",
+    "esbuild": "^0.14.50",
     "json5": "^2.2.1",
+    "replace-in-file": "^6.3.5",
     "warp-contracts": "^1.1.14"
   }
 }

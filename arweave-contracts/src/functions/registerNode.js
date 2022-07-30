@@ -41,7 +41,7 @@ module.exports = async function (state, action) {
 		active: true,
 	});
 	if (!state.rewards[input.info.rewardAddress]) {
-		state.rewards[input.info.rewardAddress] = { SOL: 0, AR: 0 };
+		state.rewards[input.info.rewardAddress] = { SOL: 0 };
 	}
 	state.balances[caller] -= settings.nodeRegistrationFee;
 

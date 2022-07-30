@@ -1,0 +1,13 @@
+{
+	balances: {
+		"udOL7D7qkfFyfnkxfRQA0r1Eoz1-XRwUOSLfiCFee38": 10000000000000,
+	},
+	foreignCalls: [],
+	divisibility: 1000000000,
+	ticker: "SOL",
+	name: "SOL (Gnaynad)",
+	canEvolve: true,
+	evolve: null,
+	puppeteer: "udOL7D7qkfFyfnkxfRQA0r1Eoz1-XRwUOSLfiCFee38",
+	invocations: [],
+}
