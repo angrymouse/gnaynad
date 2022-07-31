@@ -16,21 +16,26 @@
 			rewardAddress: "udOL7D7qkfFyfnkxfRQA0r1Eoz1-XRwUOSLfiCFee38",
 			lastClaim: 984858,
 			power: 50000000000, // will be useful when slashing will be implemented
-			externalRewards:{
-				SOL:0
-			}
+			externalRewards: {
+				SOL: 0,
+			},
 		},
 	],
 	proposals: [],
-	settings: [["nodeRegistrationFee", 50000000000],["targetAPR",0.1],["averageBlocksPerYear",249099]],
+	settings: [
+		["nodeRegistrationFee", 50000000000],
+		["targetAPR", 0.1],
+		["averageBlocksPerYear", 249099],
+		["proposerCommission", 0.3],
+		["bridgeCommission", 0.01],
+	],
 	internalProposals: [],
 	canEvolve: true,
 	evolve: null,
 	solanaSafe: "AJAURkrKKYqoWmpBQj385ym4FXFCjPs7SpC9HjqQFx7Z",
-,
 	invocations: [],
 	tokenContracts: {
 		SOL: "HXAVuzM5S9IzV1qKU4HGQi3YXBnzvtHqZuTWDJMBC14", // insert SOL token contract address here, then use "setPuppeteer" on SOL contract, setting deployed version of this contract
 	},
-	,
+	supportedNetworks: ["solana"],
 }

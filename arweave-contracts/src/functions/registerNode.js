@@ -40,9 +40,7 @@ module.exports = async function (state, action) {
 		solanaAddress: input.info.solanaAddress,
 		active: true,
 	});
-	if (!state.rewards[input.info.rewardAddress]) {
-		state.rewards[input.info.rewardAddress] = { SOL: 0 };
-	}
+
 	state.balances[caller] -= settings.nodeRegistrationFee;
 
 	return { state };

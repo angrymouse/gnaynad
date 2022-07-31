@@ -1,33 +1,57 @@
 module.exports = async function (state, action) {
 	let { input, caller } = action;
 	let settings = Object.fromEntries(state.settings);
-	if (!state.rewards[caller]) {
-		throw new ContractError("No relaying node");
+	if (!state.nodes.find((node) => node.arweaveAddress == caller)) {
+		throw new ContractError(
+			"Address not belongs to any node. Only relaying nodes can propose internal interactions."
+		);
 	}
-	let nativeRewards = 0;
-	state.nodes.forEach((node) => {
-		if (!node.active) {
-			return;
-		}
-		if (node.rewardAddress == caller) {
-			nativeRewards +=
-				(SmartWeave.block.height - lastClaim) *
-				((node.power / settings.averageBlocksPerYear) * settings.targetAPR);
-			Object.keys(node.externalRewards).forEach((token) => {
-				if (state.tokenContracts[token]) {
-					state.foreignCalls.push({
-						txID: SmartWeave.transaction.id,
-						contract: state.tokenContracts[token],
-						input: {
-							function: "transfer",
-							qty: node.externalRewards[token],
-							target: caller,
-						},
-					});
+	if (
+		!input.actionType ||
+		!input.details ||
+		typeof input.details !== "object" ||
+		typeof input.actionType !== "string"
+	) {
+		throw new ContractError("Missing actionType or details");
+	}
+	return await (
+		{
+			relayTransfer: async () => {
+				if (
+					!details.network ||
+					!state.supportedNetworks.includes(details.network)
+				) {
+					throw new ContractError("Invalid network");
 				}
-			});
-		}
-	});
-	state.balances[caller] += nativeRewards;
-	return { state };
+				if (
+					!details.transactionId ||
+					typeof details.transactionId !== "string"
+				) {
+					throw new ContractError("Invalid transaction ID");
+				}
+				if (
+					!details.serializedInfo ||
+					typeof details.serializedInfo !== "string"
+				) {
+					throw new ContractError("Invalid transaction info");
+				}
+				state.internalProposals.push({
+					actionType: "relayTransfer",
+					proposer: caller,
+					completed: false,
+					network: details.network,
+					transactionId: details.transactionId,
+					votes: {
+						[details.serializedInfo]: [caller],
+					},
+				});
+				return { state };
+			},
+		}[input.actionType] ||
+		(async () => {
+			if (true) {
+			} //esbuild will try to minify it unwrapping self-executing function if there's only one action, we don't need this with "throw" keyword!!
+			throw new ContractError("Invalid action type");
+		})
+	)(state, action);
 };
