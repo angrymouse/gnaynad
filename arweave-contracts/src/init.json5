@@ -21,21 +21,29 @@
 			},
 		},
 	],
+	threshold: 1,
 	proposals: [],
 	settings: [
 		["nodeRegistrationFee", 50000000000],
+		["downtimeSlashingPower",0.001]
 		["targetAPR", 0.1],
 		["averageBlocksPerYear", 249099],
 		["proposerCommission", 0.3],
 		["bridgeCommission", 0.01],
+		["thresholdChange", 0.5],
+		["internalProposalBlocksLimit", 30],
+		["falseVoteSlashingPower",0.05]
 	],
-	internalProposals: [],
+	consensusRing: {},
 	canEvolve: true,
 	evolve: null,
 	solanaSafe: "AJAURkrKKYqoWmpBQj385ym4FXFCjPs7SpC9HjqQFx7Z",
 	invocations: [],
 	tokenContracts: {
 		SOL: "HXAVuzM5S9IzV1qKU4HGQi3YXBnzvtHqZuTWDJMBC14", // insert SOL token contract address here, then use "setPuppeteer" on SOL contract, setting deployed version of this contract
+	},
+	tokenNetworkMap: {
+		SOL: "solana",
 	},
 	supportedNetworks: ["solana"],
 }

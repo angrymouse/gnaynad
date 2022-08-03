@@ -40,7 +40,7 @@ module.exports = async function (state, action) {
 		solanaAddress: input.info.solanaAddress,
 		active: true,
 	});
-
+	state.threshold += settings.thresholdChange;
 	state.balances[caller] -= settings.nodeRegistrationFee;
 
 	return { state };
