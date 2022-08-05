@@ -5,5 +5,6 @@ module.exports = async function (state, action) {
 	}
 
 	state.puppeteer = input.puppeteer;
+	state.active = true;
 	return { state };
 };

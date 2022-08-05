@@ -9,5 +9,6 @@
 	canEvolve: true,
 	evolve: null,
 	puppeteer: "udOL7D7qkfFyfnkxfRQA0r1Eoz1-XRwUOSLfiCFee38",
+	active: false,
 	invocations: [],
 }

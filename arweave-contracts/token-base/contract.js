@@ -9,7 +9,12 @@ export async function handle(state, action) {
 	) {
 		throw new ContractError("No function");
 	}
-
+	if (state.active) {
+		let readOutbox = require("./functions/readOutbox.js");
+		state = await readOutbox(state, {
+			input: { contract: state.puppeteer },
+		}).state;
+	}
 	return await (
 		{
 			balance: require("./functions/balance.js"),
