@@ -66,8 +66,12 @@ export async function handle(state, action) {
 			registerNode: require("./functions/registerNode.js"),
 			claimRewards: require("./functions/claimRewards.js"),
 			ringVote: require("./functions/ringVote.js"),
+			evolve: require("./functions/evolve.js"),
+			getNodes: require("./functions/getNodes.js"),
 		}[input.function] ||
-		(() => {
+		(async () => {
+			if (true) {
+			} //esbuild will try to minify it unwrapping self-executing function if there's only one action, we don't need this with "throw" keyword!!
 			throw new ContractError("Invalid function");
 		})
 	)(state, action);
