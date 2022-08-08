@@ -20,6 +20,13 @@ export async function handle(state, action) {
 		if (meta.endHeight <= SmartWeave.block.height) {
 			state.consensusRing[vote].finished = true;
 		}
+		if (
+			state.consensusRing[vote].finished &&
+			state.consensusRing[vote].executed
+		) {
+			let proposal = JSON.parse(SmartWeave.arweave.utils.b64UrlToString(vote));
+			state.processedTransactions.push(proposal.txID);
+		}
 	});
 	let executedUnfinishedConsensusRing = Object.entries(
 		state.consensusRing
@@ -68,6 +75,8 @@ export async function handle(state, action) {
 			ringVote: require("./functions/ringVote.js"),
 			evolve: require("./functions/evolve.js"),
 			getNodes: require("./functions/getNodes.js"),
+			addToProcessingStack: require("./functions/addToProcessingStack.js"),
+			fetchProcessingStack: require("./functions/fetchProcessingStack.js"),
 		}[input.function] ||
 		(async () => {
 			if (true) {

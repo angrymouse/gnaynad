@@ -113,7 +113,15 @@
   dependencies:
     buffer "~6.0.3"
 
-"@solana/web3.js@^1.36.0", "@solana/web3.js@^1.43.5", "@solana/web3.js@^1.50.1":
+"@solana/spl-memo@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@solana/spl-memo/-/spl-memo-0.1.0.tgz#2578a48da5184b306195bef0d658dec532b46c74"
+  integrity sha512-2Ob89TYXVkLXsdRIsVh9H/9rJrVXpOTapn/f/32n5/B8JRaSRBcVBLIAgAwSjMH1oJdBlmBO0lt8+cbWBrRLuA==
+  dependencies:
+    "@solana/web3.js" "^1.41.0"
+    buffer "^6.0.3"
+
+"@solana/web3.js@^1.36.0", "@solana/web3.js@^1.41.0", "@solana/web3.js@^1.43.5", "@solana/web3.js@^1.50.1":
   version "1.50.1"
   resolved "https://registry.yarnpkg.com/@solana/web3.js/-/web3.js-1.50.1.tgz#dae726a06267d1bcd88b1e3cd8ae44c709302dcf"
   integrity sha512-1l9N/nS8pJEA2YibNT8wa072718O0/A1eKWE0+pdWC5wDGQgBNxZSLuv7Cq5Dcn46WsZ5J5ZstK89q8J/ZZaQA==
@@ -2119,7 +2127,7 @@ tslog@^3.2.2:
   dependencies:
     source-map-support "^0.5.21"
 
-tweetnacl@^1.0.0:
+tweetnacl@^1.0.0, tweetnacl@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-1.0.3.tgz#ac0af71680458d8a6378d0d0d050ab1407d35596"
   integrity sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==

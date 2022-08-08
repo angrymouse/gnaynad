@@ -34,12 +34,14 @@
 		["internalProposalBlocksLimit", 30],
 		["falseVoteSlashingPower", 0.05],
 		["governedBy", "udOL7D7qkfFyfnkxfRQA0r1Eoz1-XRwUOSLfiCFee38"],
+		["processingStackAdditionFee", 100000],
 	],
 	consensusRing: {},
 	canEvolve: true,
 	evolve: null,
 	solanaSafe: "AJAURkrKKYqoWmpBQj385ym4FXFCjPs7SpC9HjqQFx7Z",
 	invocations: [],
+	processingStack: [],
 	tokenContracts: {
 		SOL: "nm6iHCmoA-oGlM3RrBOXysiEqJOBxcut-IBvyCNvy_w", // insert SOL token contract address here, then use "setPuppeteer" on SOL contract, setting deployed version of this contract
 	},
@@ -47,4 +49,5 @@
 		SOL: "solana",
 	},
 	supportedNetworks: ["solana"], // Will be replaced by address of bridge contract itself when development stage of brige will be done.
+	processedTransactions: [],
 }
