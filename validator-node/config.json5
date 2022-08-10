@@ -1,4 +1,5 @@
 {
 	solanaEndpoint: "https://api.mainnet-beta.solana.com",
-	ringspireContract: "XQpwOe2g6Cs2LUer6CpgWGYSHkOn_KgiFAkq_UyXGzg",
+	ringspireContract: "9CULU0V4Ljz9_G__KFpgz1__MkxdCLlnTtyLN28nMdY",
+	checkInterval: 10000,
 }

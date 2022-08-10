@@ -27,11 +27,13 @@ module.exports = async function (state, action) {
 		network: input.network,
 		txId: input.txId,
 		dataToSign:
-			input.signature.toString() +
+			caller.toString() +
 			input.pubkey.toString() +
 			input.network.toString() +
 			input.txId.toString(),
 		blockHeight: SmartWeave.block.height,
+		id: SmartWeave.transaction.id,
+		claimer: caller,
 	});
 	return { state };
 };

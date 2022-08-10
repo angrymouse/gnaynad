@@ -39,7 +39,7 @@
 	consensusRing: {},
 	canEvolve: true,
 	evolve: null,
-	solanaSafe: "AJAURkrKKYqoWmpBQj385ym4FXFCjPs7SpC9HjqQFx7Z",
+	solanaSafe: "",
 	invocations: [],
 	processingStack: [],
 	tokenContracts: {
@@ -50,4 +50,10 @@
 	},
 	supportedNetworks: ["solana"], // Will be replaced by address of bridge contract itself when development stage of brige will be done.
 	processedTransactions: [],
+	multisigs: {
+		solana: {
+			managingContract: "AJAURkrKKYqoWmpBQj385ym4FXFCjPs7SpC9HjqQFx7Z",
+			address: "8AKnJqUYECNpDe4GZwv8nZeiEYZyofZUMg1ePYqqzPg5",
+		},
+	},
 }

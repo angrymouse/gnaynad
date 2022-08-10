@@ -17,6 +17,7 @@
     "bs58": "^5.0.0",
     "esbuild": "^0.14.50",
     "json5": "^2.2.1",
+    "level": "^8.0.0",
     "replace-in-file": "^6.3.5",
     "tweetnacl": "^1.0.3",
     "warp-contracts": "^1.1.14"

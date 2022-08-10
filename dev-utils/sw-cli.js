@@ -5,7 +5,7 @@ const Arweave = require("arweave");
 const { WarpNodeFactory } = require("warp-contracts");
 const fs = require("fs");
 const path = require("node:path");
-
+const JSON5 = require("json5");
 global.prompt = function (question) {
 	return new Promise((resolve) => {
 		const rl = readline.createInterface({ input, output });
@@ -26,7 +26,7 @@ global.multilineJsonPrompt = async function multilineJsonPrompt() {
 			return accumulated;
 		}
 	}
-	return JSON.parse(await inheritedRecursive());
+	return JSON5.parse(await inheritedRecursive());
 };
 (async () => {
 	let contractAddress = await prompt("Contract address: ");
@@ -41,7 +41,7 @@ global.multilineJsonPrompt = async function multilineJsonPrompt() {
 			"utf8"
 		)
 	);
-	console.log("Inter input for contract, JSON format. END to finish");
+	console.log("Enter input for contract, JSON format. END to finish");
 	let input = await multilineJsonPrompt();
 	const arweave = Arweave.init({
 		host: "arweave.net",
