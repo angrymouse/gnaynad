@@ -33,6 +33,7 @@ module.exports = async function (state, action) {
 					// esbuild wants to rewrite main handle function because of calling handle directly, and keepNames not works properly, so we use eval to disable "optimization"
 					caller: input.contract,
 					input: entry.input,
+					notUseStartupFCP: true, // Disable startup FCP, or we will get into recursion
 				})
 			).state || state;
 		// Push invocation to executed invocations

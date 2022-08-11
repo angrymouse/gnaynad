@@ -131,3 +131,6 @@ dist
 keys/
 arweave-contracts/.secrets
 .secrets
+warp-cache
+validator-node/warp-contracts-cache
+validator-node/local-data

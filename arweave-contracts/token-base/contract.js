@@ -9,11 +9,12 @@ export async function handle(state, action) {
 	) {
 		throw new ContractError("No function");
 	}
-	if (state.active) {
+	if (state.active && !action.notUseStartupFCP) {
 		let readOutbox = require("./functions/readOutbox.js");
-		state = await readOutbox(state, {
+		let readOutboxResult = await readOutbox(state, {
 			input: { contract: state.puppeteer },
-		}).state;
+		});
+		state = readOutboxResult.state;
 	}
 	return await (
 		{

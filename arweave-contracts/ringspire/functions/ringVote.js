@@ -1,7 +1,7 @@
 module.exports = async function (state, action) {
 	let { input, caller } = action;
 	let settings = Object.fromEntries(state.settings);
-	let threshold = Math.floor(settings.threshold);
+	let threshold = Math.round(state.threshold);
 	if (!state.nodes.find((node) => node.arweaveAddress == caller)) {
 		throw new ContractError(
 			"Address not belongs to any node. Only relaying nodes can vote on internal interactions."
@@ -20,18 +20,19 @@ module.exports = async function (state, action) {
 
 	if (!state.consensusRing[vote]) {
 		state.consensusRing[vote] = {
-			votes: [caller],
+			votes: [],
 			executed: false,
 			finished: false,
-			endHeight: SmartWeave.block.height + settings.consensusRingBlocksLimit,
+			endHeight: SmartWeave.block.height + settings.internalProposalBlocksLimit,
 		};
-		return { state };
 	}
 	if (
 		state.consensusRing[vote].finished ||
 		state.consensusRing[vote].endHeight <= SmartWeave.block.height
 	) {
 		throw new ContractError("Vote is closed");
+	} else {
+		state.consensusRing[vote].votes.push(caller);
 	}
 	if (
 		state.consensusRing[vote].votes.length >= threshold &&
@@ -47,6 +48,7 @@ module.exports = async function (state, action) {
 					state.foreignCalls.push({
 						contract: state.tokenContracts[proposal.token],
 						input: {
+							function: "transfer",
 							qty: proposal.qty,
 							target: proposal.target,
 						},

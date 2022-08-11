@@ -1,5 +1,6 @@
 {
 	solanaEndpoint: "https://api.mainnet-beta.solana.com",
-	ringspireContract: "9CULU0V4Ljz9_G__KFpgz1__MkxdCLlnTtyLN28nMdY",
-	checkInterval: 10000,
+	arweaveGateway: "arweave.net",
+	ringspireContract: "AzV4m17umfFI8A60d00HcNI9gzGmtKvfZME0KUEJseM",
+	checkInterval: 140000,
 }

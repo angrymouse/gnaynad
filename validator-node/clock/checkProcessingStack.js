@@ -1,6 +1,6 @@
 const bs58 = require("bs58");
 const nacl = require("tweetnacl");
-module.exports = async function ({ ringspire, anchor }) {
+module.exports = async function ({ ringspire, anchor, arweave }) {
 	let activeRingState = await ringspire.viewState({
 		function: "fetchProcessingStack",
 		blockMargin: 1000,
@@ -57,6 +57,33 @@ module.exports = async function ({ ringspire, anchor }) {
 			`${instruction.parsed.info.source} (solana) deposited ${
 				amountInLamports / 1000000000
 			} SOL to ${item.claimer} (arweave)`
+		);
+		console.log(
+			await ringspire.viewState({
+				function: "ringVote",
+				vote: arweave.utils.stringToB64Url(
+					JSON.stringify({
+						token: "SOL",
+						qty: amountInLamports,
+						target: item.claimer,
+						action: "relayTransfer",
+					})
+				),
+			})
+		);
+		console.log(
+			"Voted",
+			await ringspire.writeInteraction({
+				function: "ringVote",
+				vote: arweave.utils.stringToB64Url(
+					JSON.stringify({
+						token: "SOL",
+						qty: amountInLamports,
+						target: item.claimer,
+						action: "relayTransfer",
+					})
+				),
+			})
 		);
 	});
 	return;

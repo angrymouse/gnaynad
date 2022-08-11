@@ -1,7 +1,5 @@
 {
-	balances: {
-		"udOL7D7qkfFyfnkxfRQA0r1Eoz1-XRwUOSLfiCFee38": 10000000000000,
-	},
+	balances: {},
 	foreignCalls: [],
 	divisibility: 1000000000,
 	ticker: "SOL",
@@ -11,4 +9,13 @@
 	puppeteer: "udOL7D7qkfFyfnkxfRQA0r1Eoz1-XRwUOSLfiCFee38",
 	active: false,
 	invocations: [],
+	settings: [
+		["communityAppUrl", "https://gnaynad.yachts"],
+		["communityDiscussionLinks", ["https://gnaynad.yachts/community"]],
+		[
+			"communityDescription",
+			"A decentralized bridge protocol for bridging economy to arweave.",
+		],
+		["communityLogo", "2vhXm0L5AWK6_d_UqH-xTANboNAyUPMj_8zxjuylPjI"],
+	],
 }

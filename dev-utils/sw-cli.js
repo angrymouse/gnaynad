@@ -2,10 +2,11 @@
 const { stdin: input, stdout: output } = require("node:process");
 const readline = require("node:readline");
 const Arweave = require("arweave");
-const { WarpNodeFactory } = require("warp-contracts");
+const { WarpNodeFactory, LoggerFactory } = require("warp-contracts");
 const fs = require("fs");
 const path = require("node:path");
 const JSON5 = require("json5");
+LoggerFactory.INST.logLevel("fatal");
 global.prompt = function (question) {
 	return new Promise((resolve) => {
 		const rl = readline.createInterface({ input, output });
@@ -48,7 +49,7 @@ global.multilineJsonPrompt = async function multilineJsonPrompt() {
 		port: 443,
 		protocol: "https",
 	});
-	const warp = WarpNodeFactory.memCached(arweave);
+	const warp = WarpNodeFactory.fileCached(arweave, "warp-cache");
 	let contract = warp.contract(contractAddress).connect(jwk);
 	console.log("Submitting interaction...");
 	console.log("New state: ", await contract.viewState(input));

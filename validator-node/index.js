@@ -21,7 +21,7 @@ const { Level } = require("level");
 	// let anchWallet = anchor.Wallet();
 
 	const arweave = Arweave.init({
-		host: "arweave.dev",
+		host: config.arweaveGateway,
 		port: 443,
 		protocol: "https",
 	});
@@ -49,22 +49,13 @@ const { Level } = require("level");
 			require("./clock/checkProcessingStack")({
 				ringspire,
 				anchor: anchProvider,
+				arweave: arweave,
 			}),
 		config.checkInterval
 	);
-	// console.log(tx);
-	// const message = "The quick brown fox jumps over the lazy dog";
-	// const messageBytes = new Uint8Array(Buffer.from(message));
 
-	// const signature = nacl.sign.detached(messageBytes, solKey.secretKey);
-	// console.log(signature);
-
-	// const result = nacl.sign.detached.verify(
-	// 	new Uint8Array(),
-	// 	signature,
-	// 	solKey.publicKey.toBytes()
-	// );
-
-	// console.log(result);
-	// console.log(nacl);
+	process.on("unhandledRejection", (reason, promise) => {
+		console.log("Unhandled Rejection at:", promise, "reason:", reason);
+		// We don't want to stop our node just because warp wants
+	});
 })();
